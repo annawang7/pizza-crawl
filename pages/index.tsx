@@ -4,9 +4,10 @@ import Map from "./components/Map";
 import fakeStops from "./api/fakeStops.json";
 import { useState } from "react";
 
-type Stop = {
+export type Stop = {
   name: string;
   address: string;
+  latLong: number[];
   rating: number;
   description: string;
 };
@@ -43,7 +44,7 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.mapContainer}>
-            <Map />
+            <Map stops={fakeStops} currentStopIndex={0} />
           </div>
         </div>
       </main>
