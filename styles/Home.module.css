@@ -1,12 +1,15 @@
 .container {
   min-height: 100vh;
   padding: 0 0.5rem;
-  max-width: 80%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.headerContainer {
+  max-width: 80%;
+  margin: 0 auto;
 }
 
 .title {
@@ -18,8 +21,8 @@
 
 .description {
   line-height: 1.5;
-  font-size: 1.5rem;
-  text-align: center;
+  font-size: 1rem;
+  font-style: italic;
 }
 
 .content {
@@ -31,8 +34,13 @@
 
 .descriptorsContainer {
   flex: 1;
+  padding: 1rem;
+}
+
+.stopContainer {
 }
 
 .mapContainer {
-  width: 300px;
+  flex: 1;
+  min-width: 500px;
 }

@@ -2,12 +2,49 @@
   {
     "name": "Best Pizza",
     "address": "33 Havemeyer St",
+    "latLong": [40.71560377345622, -73.95346652966546],
     "rating": 4.5,
     "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
   },
   {
+    "name": "Mo's General",
+    "address": "620 Lorimer St",
+    "latLong": [40.715604301434254, -73.94944699900114],
+    "rating": 1,
+    "description": ""
+  },
+  {
+    "name": "Williamsburg Pizza",
+    "address": "265 Union Ave",
+    "latLong": [40.70812751097439, -73.95086553905014],
+    "rating": 1,
+    "description": ""
+  },
+  {
     "name": "L'Industrie",
     "address": "254 S 2nd St",
+    "latLong": [40.711623061079976, -73.9578456337134],
+    "rating": 4.5,
+    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+  },
+  {
+    "name": "Fini Pizza",
+    "address": "305 Bedford Ave",
+    "latLong": [40.713468986196915, -73.9618181355529],
+    "rating": 4.5,
+    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+  },
+  {
+    "name": "Joe's Pizza",
+    "address": "216 Bedford Ave",
+    "latLong": [40.716891397555656, -73.95896337050507],
+    "rating": 4.5,
+    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+  },
+  {
+    "name": "Vinnie's",
+    "address": "148 Bedford Ave",
+    "latLong": [40.71889460698434, -73.95679689139185],
     "rating": 4.5,
     "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
   }

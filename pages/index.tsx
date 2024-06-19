@@ -1,7 +1,19 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
+import Map from "./components/Map";
+import fakeStops from "./api/fakeStops.json";
+import { useState } from "react";
+
+type Stop = {
+  name: string;
+  address: string;
+  rating: number;
+  description: string;
+};
 
 export default function Home() {
+  const [currentStopIndex, setCurrentStopIndex] = useState<number>(0);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -10,31 +22,41 @@ export default function Home() {
       </Head>
 
       <main>
-        <div>
+        <div className={styles.headerContainer}>
           <h1 className={styles.title}>Williamsburg Pizza Crawl</h1>
-
-          <p className={styles.description}>
-            Williamsburg, Brooklyn, NYC has perhaps the best square mile of
-            pizza in the US, if not the world. Here's a guide to hitting some of
-            the best spots in town in just one day.
-          </p>
         </div>
 
         <div className={styles.content}>
-          <div className={styles.descriptorsContainer}></div>
-          <div className={styles.mapContainer}>This is a map</div>
+          <div className={styles.descriptorsContainer}>
+            <p className={styles.description}>
+              Williamsburg, Brooklyn, NYC has perhaps the best square mile of
+              pizza in the US, if not the world. Here's a guide to hitting some
+              of the best spots in town in just one day.
+            </p>
+            {fakeStops.map((stop: Stop, i) => (
+              <div className={styles.stopContainer}>
+                <h1>
+                  {i + 1}. {stop.name}
+                </h1>
+                <p>{stop.description}</p>
+              </div>
+            ))}
+          </div>
+          <div className={styles.mapContainer}>
+            <Map />
+          </div>
         </div>
       </main>
 
       <footer>
         <a target="_blank" rel="noopener noreferrer">
-          Made with pizza by Anna Wang
+          Happy 27th Ryan! Made with 🍕 by Anna
         </a>
       </footer>
 
       <style jsx>{`
         main {
-          padding: 5rem 0;
+          padding: 5rem 0 0 0;
           flex: 1;
           display: flex;
           flex-direction: column;
