@@ -30,6 +30,7 @@ export default function Map({ stops, currentStopIndex }: MapProps) {
       zoom: zoom,
     });
 
+    map.current.scrollZoom.disable();
     // Create a default Marker and add it to the map.
     stops.map((stop) => {
       const marker = new mapboxgl.Marker({ color: "red" })

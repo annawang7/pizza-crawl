@@ -3,6 +3,10 @@ import styles from "../styles/Home.module.css";
 import Map from "./components/Map";
 import fakeStops from "./api/fakeStops.json";
 import { useState } from "react";
+import { Paytone_One, Libre_Baskerville } from "next/font/google";
+
+const titleFont = Paytone_One({ weight: "400", subsets: ["latin"] });
+const bodyFont = Libre_Baskerville({ weight: "400", subsets: ["latin"] });
 
 export type Stop = {
   name: string;
@@ -24,18 +28,20 @@ export default function Home() {
 
       <main>
         <div className={styles.headerContainer}>
-          <h1 className={styles.title}>Williamsburg Pizza Crawl</h1>
+          <h1 className={`${styles.title} ${bodyFont.className}`}>
+            Williamsburg Pizza Crawl
+          </h1>
         </div>
 
-        <div className={styles.content}>
+        <div className={`${styles.content} ${bodyFont.className}`}>
           <div className={styles.descriptorsContainer}>
-            <p className={styles.description}>
+            <div className={styles.description}>
               Williamsburg, Brooklyn, NYC has perhaps the best square mile of
               pizza in the US, if not the world. Here's a guide to hitting some
               of the best spots in town in just one day.
-            </p>
+            </div>
             {fakeStops.map((stop: Stop, i) => (
-              <div className={styles.stopContainer}>
+              <div className={styles.stopContainer} key={stop.name}>
                 <h1>
                   {i + 1}. {stop.name}
                 </h1>
@@ -57,12 +63,12 @@ export default function Home() {
 
       <style jsx>{`
         main {
-          padding: 5rem 0 0 0;
           flex: 1;
           display: flex;
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          overflow: scroll;
         }
         footer {
           width: 100%;
