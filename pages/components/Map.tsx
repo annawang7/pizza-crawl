@@ -73,11 +73,6 @@ export default function Map({ stops, currentStopIndex }: MapProps) {
         easing: (t) => t,
       });
     }
-
-    // Cleanup function
-    return () => {
-      markersRef.current.forEach((marker) => marker.remove());
-    };
   }, [stops, currentStopIndex, mapboxToken, zoom]);
 
   return <div ref={mapContainer} className={styles.mapContainer} />;

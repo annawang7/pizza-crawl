@@ -9,7 +9,7 @@ const Marker: React.FC<MarkerProps> = ({ index, isCurrentStop }) => {
   return (
     <div
       style={{
-        backgroundColor: isCurrentStop ? "#3498db" : "#e74c3c",
+        backgroundColor: isCurrentStop ? "#36488A" : "#DD633C",
         color: "white",
         width: "24px",
         height: "24px",
