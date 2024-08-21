@@ -30,13 +30,10 @@ export default function Home() {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = containerRef.current.scrollTop;
-      console.log(scrollTop);
       if (scrollTop > 0) {
         setIsScrolled(true);
-        console.log("scrolled");
       } else {
         setIsScrolled(false);
-        console.log("not scrolled");
       }
     };
 
@@ -48,6 +45,8 @@ export default function Home() {
       containerRef.current.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const [hoveredStopIndex, setHoveredStopIndex] = useState<number | null>(null);
 
   return (
     <div className={cx("container", bodyFont.className)}>
@@ -70,7 +69,14 @@ export default function Home() {
               of the best spots in town in just one day.
             </div>
             {fakeStops.map((stop: Stop, i) => (
-              <div className={styles.stopContainer} key={stop.name}>
+              <div
+                className={cx("stopContainer", {
+                  hovered: hoveredStopIndex === i,
+                })}
+                key={stop.name}
+                onMouseEnter={() => setHoveredStopIndex(i)}
+                onMouseLeave={() => setHoveredStopIndex(null)}
+              >
                 <h2>
                   {i + 1}. {stop.name}
                 </h2>
@@ -83,7 +89,7 @@ export default function Home() {
             ))}
           </div>
           <div className={styles.mapContainer}>
-            <Map stops={fakeStops} currentStopIndex={0} />
+            <Map stops={fakeStops} currentStopIndex={hoveredStopIndex} />
           </div>
         </div>
       </main>
