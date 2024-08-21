@@ -48,8 +48,7 @@ export default function Map({ stops, currentStopIndex }: MapProps) {
         const markerContainer = document.createElement("div");
         const root = createRoot(markerContainer);
         root.render(
-          <Marker index={index} isCurrentStop={index === currentStopIndex} />,
-          markerContainer
+          <Marker index={index} isCurrentStop={index === currentStopIndex} />
         );
 
         const marker = new mapboxgl.Marker({ element: markerContainer })

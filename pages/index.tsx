@@ -87,6 +87,9 @@ export default function Home() {
                 <p>{stop.description}</p>
               </div>
             ))}
+            <div className={styles.description}>
+              If you have any suggestions for this list, let me know!
+            </div>
           </div>
           <div className={styles.mapContainer}>
             <Map stops={fakeStops} currentStopIndex={hoveredStopIndex} />

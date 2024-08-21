@@ -36,6 +36,7 @@
   line-height: 1.5;
   font-size: 1rem;
   font-style: italic;
+  padding: 12px;
 }
 
 .content {
@@ -48,12 +49,18 @@
 
 .descriptorsContainer {
   flex: 1;
-  padding: 1rem;
 }
 
 .stopContainer {
+  padding: 6px 12px;
+  border-radius: 1rem;
+  border: 1px solid #f5f3e8;
+
   &.hovered {
-    background-color: #d3d3d3;
+    box-shadow: 4px 4px;
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+    border: 1px solid black;
   }
 }
 
