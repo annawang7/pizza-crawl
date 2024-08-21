@@ -2,11 +2,15 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Map from "./components/Map";
 import fakeStops from "./api/fakeStops.json";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Paytone_One, Libre_Baskerville } from "next/font/google";
+import classNames from "classnames/bind";
 
 const titleFont = Paytone_One({ weight: "400", subsets: ["latin"] });
-const bodyFont = Libre_Baskerville({ weight: "400", subsets: ["latin"] });
+const bodyFont = Libre_Baskerville({
+  weight: ["400", "700"],
+  subsets: ["latin"],
+});
 
 export type Stop = {
   name: string;
@@ -16,24 +20,49 @@ export type Stop = {
   description: string;
 };
 
+const cx = classNames.bind(styles);
+
 export default function Home() {
   const [currentStopIndex, setCurrentStopIndex] = useState<number>(0);
+  const containerRef = useRef(null);
+  const [scrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = containerRef.current.scrollTop;
+      console.log(scrollTop);
+      if (scrollTop > 0) {
+        setIsScrolled(true);
+        console.log("scrolled");
+      } else {
+        setIsScrolled(false);
+        console.log("not scrolled");
+      }
+    };
+
+    if (containerRef.current) {
+      containerRef.current.addEventListener("scroll", handleScroll);
+    }
+
+    return () => {
+      containerRef.current.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={cx("container", bodyFont.className)}>
       <Head>
         <title>Williamsburg Pizza Crawl</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <div className={styles.headerContainer}>
-          <h1 className={`${styles.title} ${bodyFont.className}`}>
+        <div className={cx("headerContainer", { scrolled })}>
+          <h1 className={cx("title", { scrolled })}>
             Williamsburg Pizza Crawl
           </h1>
         </div>
-
-        <div className={`${styles.content} ${bodyFont.className}`}>
+        <div ref={containerRef} className={styles.content}>
           <div className={styles.descriptorsContainer}>
             <div className={styles.description}>
               Williamsburg, Brooklyn, NYC has perhaps the best square mile of
@@ -42,9 +71,13 @@ export default function Home() {
             </div>
             {fakeStops.map((stop: Stop, i) => (
               <div className={styles.stopContainer} key={stop.name}>
-                <h1>
+                <h2>
                   {i + 1}. {stop.name}
-                </h1>
+                </h2>
+                <div>
+                  <b>Address: </b>
+                  {stop.address}
+                </div>
                 <p>{stop.description}</p>
               </div>
             ))}
@@ -55,11 +88,7 @@ export default function Home() {
         </div>
       </main>
 
-      <footer>
-        <a target="_blank" rel="noopener noreferrer">
-          Happy 27th Ryan! Made with 🍕 by Anna
-        </a>
-      </footer>
+      <footer>Happy 27th Ryan! Made with 🍕 by Anna</footer>
 
       <style jsx>{`
         main {
@@ -69,24 +98,17 @@ export default function Home() {
           justify-content: center;
           align-items: center;
           overflow: scroll;
+          padding-bottom: 24px;
         }
         footer {
           width: 100%;
-          height: 50px;
-          border-top: 1px solid #eaeaea;
+          height: 24px;
+          border-top: 1px solid #d3d3d3;
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-        footer img {
-          margin-left: 0.5rem;
-        }
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: none;
-          color: inherit;
+          padding: 4px;
+          font-size: 12px;
         }
         code {
           background: #fafafa;

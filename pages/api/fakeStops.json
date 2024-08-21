@@ -11,41 +11,42 @@
     "address": "620 Lorimer St",
     "latLong": [40.715604301434254, -73.94944699900114],
     "rating": 1,
-    "description": "You'll find Mo's General on the other side of the BQE, but it's a trek worth making. Fluffy, Detroit-style squares are this shop's highlight, with a foccacia-like dough, generous cheese, and a touch of sauce."
+    "description": "You'll find Mo's General on the other side of the BQE, but it's a trek worth making. Fluffy, foccacia-like squares are this shop's highlight, with a crisp and light dough, generous cheese, and a touch of sauce."
   },
   {
     "name": "Williamsburg Pizza",
     "address": "265 Union Ave",
     "latLong": [40.70812751097439, -73.95086553905014],
     "rating": 1,
-    "description": ""
+    "description": "A standard slice. "
   },
   {
     "name": "L'Industrie",
     "address": "254 S 2nd St",
     "latLong": [40.711623061079976, -73.9578456337134],
     "rating": 4.5,
-    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+    "tags": "Anna's favorite",
+    "description": "L'Industrie is one of the most well-known pizzerias in Williamsburg, recently expanding to their 2nd location. Their lines can be long, but it's well worth the wait. Their New Yorker slice with basil and ricotta, fig & bacon, and burrata pizzas are also some of my favorite slices in New York. "
   },
   {
     "name": "Fini Pizza",
     "address": "305 Bedford Ave",
     "latLong": [40.713468986196915, -73.9618181355529],
     "rating": 4.5,
-    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+    "description": "Check out Fini for its lemony White pizza or the Long hot pepper and shallot, signature flavors that are unique to other New York slices. "
   },
   {
     "name": "Joe's Pizza",
     "address": "216 Bedford Ave",
     "latLong": [40.716891397555656, -73.95896337050507],
     "rating": 4.5,
-    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+    "description": "Joe's isn't a slice exclusive to Williamsburg, but it's an old reliable and a great baseline. Swing by if you want a comparison to the classic Manhattan brand."
   },
   {
     "name": "Vinnie's",
     "address": "148 Bedford Ave",
     "latLong": [40.71889460698434, -73.95679689139185],
     "rating": 4.5,
-    "description": "Starting off our journey, we walk a few blocks from the Bedford Ave station to Best Pizza, where you'll find a thin crispy piece. "
+    "description": "Vinnie's also has unique flavors, like its Elote pizza or the Mac and cheese pie. The previous tenant of our apartment Leonard was a long-time fan.  "
   }
 ]
