@@ -17,11 +17,8 @@ export default function Map({ stops, currentStopIndex }: MapProps) {
   const markersRef = useRef<mapboxgl.Marker[]>([]);
 
   const mapCenter = [-73.956609, 40.71681];
-  const currentStop = stops[currentStopIndex] || null;
-  const currentStopLongLat = useMemo(
-    () => currentStop?.latLong?.toReversed(),
-    [currentStop]
-  );
+  const currentStop = stops ? stops[currentStopIndex] : null;
+
   const [zoom] = useState(14);
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;
 
