@@ -108,6 +108,7 @@ export default function Home() {
           align-items: center;
           overflow: scroll;
           padding-bottom: 24px;
+          width: 100%;
         }
         footer {
           width: 100%;
