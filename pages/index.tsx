@@ -64,9 +64,21 @@ export default function Home() {
         <div ref={containerRef} className={styles.content}>
           <div className={styles.descriptorsContainer}>
             <div className={styles.description}>
-              Williamsburg, Brooklyn, NYC has perhaps the best square mile of
-              pizza in the US, if not the world. Here's a guide to hitting some
-              of the best spots in town in just one day.
+              <p>
+                Williamsburg, Brooklyn, NYC has the best square mile of pizza
+                and I'm honored to call it home. Here's a tour of some of the
+                best spots.
+              </p>
+              <p>
+                This site is inspired by Chris Crowley's{" "}
+                <a
+                  href="https://www.grubstreet.com/2022/12/best-pizza-neighborhood-williamsburg-nyc.html"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  2022 article.
+                </a>
+              </p>
             </div>
             {fakeStops.map((stop: Stop, i) => (
               <div
