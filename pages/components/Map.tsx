@@ -23,7 +23,7 @@ export default function Map({
 
   const mapCenter = [-73.956609, 40.71681];
   const currentStop =
-    stops && currentStopIndex ? stops[currentStopIndex] : null;
+    stops && currentStopIndex !== null ? stops[currentStopIndex] : null;
 
   const [zoom] = useState(14);
   const mapboxToken = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN;

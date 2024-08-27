@@ -6,21 +6,21 @@ import { useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
 import {
   Sheet,
-  SheetClose,
   SheetContent,
-  SheetDescription,
-  SheetFooter,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { ArrowSquareOut, MapTrifold } from "@phosphor-icons/react";
+import StopContainer from "./components/StopContainer";
 
 export type Stop = {
   name: string;
   address: string;
   latLong: number[];
   rating: number;
+  gmapsUrl: string;
   description: string;
 };
 
@@ -77,20 +77,6 @@ export default function Home() {
           <h1 className={cx("title", { scrolled })}>
             Williamsburg Pizza Crawl
           </h1>
-          <Sheet>
-            <SheetTrigger asChild className="sm:hidden">
-              <Button>Open Map</Button>
-            </SheetTrigger>
-            <SheetContent className="!max-w-full w-11/12">
-              <div className="flex flex-col h-full font-sans">
-                <Map
-                  stops={fakeStops}
-                  currentStopIndex={currentStopIndex}
-                  setCurrentStopIndex={setCurrentStopIndexAndScroll}
-                />
-              </div>
-            </SheetContent>
-          </Sheet>
         </div>
         <div ref={containerRef} className={styles.content}>
           <div className={styles.descriptorsContainer}>
@@ -100,24 +86,13 @@ export default function Home() {
               spots.
             </div>
             {fakeStops.map((stop: Stop, i) => (
-              <div
-                id={`stop-${i}`}
-                className={cx("stopContainer", {
-                  hovered: currentStopIndex === i,
-                })}
+              <StopContainer
                 key={stop.name}
-                onMouseEnter={() => setCurrentStopIndex(i)}
-                onMouseLeave={() => setCurrentStopIndex(null)}
-              >
-                <h2>
-                  {i + 1}. {stop.name}
-                </h2>
-                <div>
-                  <b>Address: </b>
-                  {stop.address}
-                </div>
-                <p>{stop.description}</p>
-              </div>
+                stop={stop}
+                index={i}
+                currentStopIndex={currentStopIndex}
+                setCurrentStopIndex={setCurrentStopIndex}
+              />
             ))}
             <div className={styles.description}>
               This site is inspired by Chris Crowley's{" "}
@@ -139,6 +114,29 @@ export default function Home() {
           </div>
         </div>
       </main>
+      <footer>
+        <Sheet>
+          <SheetTrigger asChild>
+            <Button className="flex items-center gap-2 hover:bg-[#eeebda] rounded w-full">
+              <MapTrifold className="w-5 h-5" /> Open Map
+            </Button>
+          </SheetTrigger>
+          <SheetContent className="!max-w-full w-11/12">
+            <div className="flex flex-col h-full font-sans gap-4 pt-5">
+              <Map
+                stops={fakeStops}
+                currentStopIndex={currentStopIndex}
+                setCurrentStopIndex={setCurrentStopIndexAndScroll}
+              />
+              <StopContainer
+                stop={fakeStops[currentStopIndex ?? 0]}
+                currentStopIndex={currentStopIndex ?? 0}
+                index={currentStopIndex ?? 0}
+              />
+            </div>
+          </SheetContent>
+        </Sheet>
+      </footer>
 
       <style jsx>{`
         main {
@@ -153,13 +151,16 @@ export default function Home() {
         }
         footer {
           width: 100%;
-          height: 24px;
           border-top: 1px solid #d3d3d3;
           display: flex;
           justify-content: center;
           align-items: center;
           padding: 4px;
           font-size: 12px;
+
+          @media (min-width: 640px) {
+            display: none;
+          }
         }
       `}</style>
     </div>

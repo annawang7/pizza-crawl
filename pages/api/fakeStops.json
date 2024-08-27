@@ -4,6 +4,7 @@
     "address": "33 Havemeyer St",
     "latLong": [40.71560377345622, -73.95346652966546],
     "rating": 4.5,
+    "gmapsUrl": "https://maps.app.goo.gl/F3Bxx3FtpZNY9Pp88",
     "description": "Start your pizza journey at Best Pizza, just a short walk from the Bedford Ave subway station. Here, you'll find quintessential New York-style thin and crispy slices, fresh from their century-old, wood-burning oven. Each bite captures the classic flavors and textures that make Williamsburg's pizza scene so renowned."
   },
   {
@@ -11,6 +12,7 @@
     "address": "620 Lorimer St",
     "latLong": [40.715604301434254, -73.94944699900114],
     "rating": 1,
+    "gmapsUrl": "https://maps.app.goo.gl/QksGzV8JcpaF3cbv7",
     "description": "Venture across the BQE to discover Mo's General, where the highlight is their fluffy, focaccia-like square slices. The crisp, light dough is generously topped with cheese and a touch of sauce, creating a unique take on the New York pizza experience."
   },
   {
@@ -18,6 +20,7 @@
     "address": "265 Union Ave",
     "latLong": [40.70812751097439, -73.95086553905014],
     "rating": 1,
+    "gmapsUrl": "https://maps.app.goo.gl/VZmCTWV1CVSk5LnP8",
     "description": "A classic, straightforward New York slice can be found at Williamsburg Pizza, a reliable option for a quick and satisfying bite."
   },
   {
@@ -26,6 +29,7 @@
     "latLong": [40.711623061079976, -73.9578456337134],
     "rating": 4.5,
     "tags": "Anna's favorite",
+    "gmapsUrl": "https://maps.app.goo.gl/fpTPgfU9JHZdn8xNA",
     "description": "L'Industrie is a Williamsburg institution, known for its long lines that are a testament to the quality of its pies. Whether you opt for the New Yorker with basil and ricotta, the fig and bacon, or the burrata-topped masterpieces, this pizzeria delivers a truly memorable dining experience."
   },
   {
@@ -33,6 +37,7 @@
     "address": "305 Bedford Ave",
     "latLong": [40.713468986196915, -73.9618181355529],
     "rating": 4.5,
+    "gmapsUrl": "https://maps.app.goo.gl/qAFzj7TnAojvd7bF9",
     "description": "Fini Pizza offers a unique twist on the New York slice, with standout options like the lemony White pizza and the Long hot pepper and shallot pie. These signature flavors set Fini apart from the typical Williamsburg pizza offerings."
   },
   {
@@ -40,6 +45,7 @@
     "address": "216 Bedford Ave",
     "latLong": [40.716891397555656, -73.95896337050507],
     "rating": 4.5,
+    "gmapsUrl": "https://maps.app.goo.gl/AgK6CCTUcDyKFcK68",
     "description": "While Joe's Pizza may not be exclusive to Williamsburg, it's a reliable classic that serves as a benchmark for the neighborhood's pizza scene. Swing by for a taste of the quintessential New York-style slice that has made this brand a beloved institution."
   },
   {
@@ -47,6 +53,7 @@
     "address": "148 Bedford Ave",
     "latLong": [40.71889460698434, -73.95679689139185],
     "rating": 4.5,
+    "gmapsUrl": "https://maps.app.goo.gl/ipU2cwq1LZmSBKex6",
     "description": "Vinnie's offers a delightful twist on the traditional pizza experience, with unique creations like the Elote pizza and the Mac and cheese pie. This pizzeria has become a local favorite -- even Leonard, the previous tenant of our apartment, was a long-time fan."
   }
 ]
