@@ -79,7 +79,7 @@ export default function Home() {
           </h1>
           <Sheet>
             <SheetTrigger asChild className="sm:hidden">
-              <Button variant="outline">Open Map</Button>
+              <Button>Open Map</Button>
             </SheetTrigger>
             <SheetContent className="!max-w-full w-11/12">
               <div className="flex flex-col h-full font-sans">
