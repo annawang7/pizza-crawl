@@ -5,6 +5,7 @@ import "../styles/globals.css";
 const bodyFont = Libre_Baskerville({
   weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font-sans",
 });
 
 export default function MyApp({ Component, pageProps }: AppProps) {

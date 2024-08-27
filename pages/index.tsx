@@ -4,6 +4,17 @@ import Map from "./components/Map";
 import fakeStops from "./api/fakeStops.json";
 import { useEffect, useRef, useState } from "react";
 import classNames from "classnames/bind";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
 
 export type Stop = {
   name: string;
@@ -16,16 +27,18 @@ export type Stop = {
 const cx = classNames.bind(styles);
 
 export default function Home() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
   const [scrolled, setIsScrolled] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = containerRef.current.scrollTop;
-      if (scrollTop > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
+      if (containerRef.current) {
+        const scrollTop = containerRef.current.scrollTop;
+        if (scrollTop > 0) {
+          setIsScrolled(true);
+        } else {
+          setIsScrolled(false);
+        }
       }
     };
 
@@ -34,7 +47,7 @@ export default function Home() {
     }
 
     return () => {
-      containerRef.current.removeEventListener("scroll", handleScroll);
+      containerRef.current?.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -64,6 +77,20 @@ export default function Home() {
           <h1 className={cx("title", { scrolled })}>
             Williamsburg Pizza Crawl
           </h1>
+          <Sheet>
+            <SheetTrigger asChild className="sm:hidden">
+              <Button variant="outline">Open Map</Button>
+            </SheetTrigger>
+            <SheetContent className="!max-w-full w-11/12">
+              <div className="flex flex-col h-full font-sans">
+                <Map
+                  stops={fakeStops}
+                  currentStopIndex={currentStopIndex}
+                  setCurrentStopIndex={setCurrentStopIndexAndScroll}
+                />
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
         <div ref={containerRef} className={styles.content}>
           <div className={styles.descriptorsContainer}>
@@ -103,7 +130,7 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <div className={styles.mapContainer}>
+          <div className={`${styles.mapContainer} hidden sm:block`}>
             <Map
               stops={fakeStops}
               currentStopIndex={currentStopIndex}
@@ -133,28 +160,6 @@ export default function Home() {
           align-items: center;
           padding: 4px;
           font-size: 12px;
-        }
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-        * {
-          box-sizing: border-box;
         }
       `}</style>
     </div>
