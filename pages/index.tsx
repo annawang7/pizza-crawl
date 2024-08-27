@@ -23,7 +23,6 @@ export type Stop = {
 const cx = classNames.bind(styles);
 
 export default function Home() {
-  const [currentStopIndex, setCurrentStopIndex] = useState<number>(0);
   const containerRef = useRef(null);
   const [scrolled, setIsScrolled] = useState<boolean>(false);
 
@@ -46,7 +45,19 @@ export default function Home() {
     };
   }, []);
 
-  const [hoveredStopIndex, setHoveredStopIndex] = useState<number | null>(null);
+  const [currentStopIndex, setCurrentStopIndex] = useState<number | null>(null);
+
+  const scrollToStop = (index: number) => {
+    const stopElement = document.getElementById(`stop-${index}`);
+    if (stopElement) {
+      stopElement.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
+  const setCurrentStopIndexAndScroll = (index: number) => {
+    setCurrentStopIndex(index);
+    scrollToStop(index);
+  };
 
   return (
     <div className={cx("container", bodyFont.className)}>
@@ -82,12 +93,13 @@ export default function Home() {
             </div>
             {fakeStops.map((stop: Stop, i) => (
               <div
+                id={`stop-${i}`}
                 className={cx("stopContainer", {
-                  hovered: hoveredStopIndex === i,
+                  hovered: currentStopIndex === i,
                 })}
                 key={stop.name}
-                onMouseEnter={() => setHoveredStopIndex(i)}
-                onMouseLeave={() => setHoveredStopIndex(null)}
+                onMouseEnter={() => setCurrentStopIndex(i)}
+                onMouseLeave={() => setCurrentStopIndex(null)}
               >
                 <h2>
                   {i + 1}. {stop.name}
@@ -99,17 +111,16 @@ export default function Home() {
                 <p>{stop.description}</p>
               </div>
             ))}
-            <div className={styles.description}>
-              If you have any suggestions for this list, let me know!
-            </div>
           </div>
           <div className={styles.mapContainer}>
-            <Map stops={fakeStops} currentStopIndex={hoveredStopIndex} />
+            <Map
+              stops={fakeStops}
+              currentStopIndex={currentStopIndex}
+              setCurrentStopIndex={setCurrentStopIndexAndScroll}
+            />
           </div>
         </div>
       </main>
-
-      <footer>Happy 27th Ryan! Made with 🍕 by Anna</footer>
 
       <style jsx>{`
         main {

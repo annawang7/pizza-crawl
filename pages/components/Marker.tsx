@@ -3,9 +3,14 @@ import React from "react";
 interface MarkerProps {
   index: number;
   isCurrentStop: boolean;
+  setCurrentStopIndex: (index: number) => void;
 }
 
-const Marker: React.FC<MarkerProps> = ({ index, isCurrentStop }) => {
+const Marker: React.FC<MarkerProps> = ({
+  index,
+  isCurrentStop,
+  setCurrentStopIndex,
+}) => {
   return (
     <div
       style={{
@@ -20,6 +25,7 @@ const Marker: React.FC<MarkerProps> = ({ index, isCurrentStop }) => {
         fontWeight: "bold",
         fontSize: "14px",
       }}
+      onClick={() => setCurrentStopIndex(index)}
     >
       {index + 1}
     </div>

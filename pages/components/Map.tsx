@@ -9,9 +9,14 @@ import Marker from "./Marker";
 type MapProps = {
   stops: Stop[];
   currentStopIndex: number;
+  setCurrentStopIndex: (index: number) => void;
 };
 
-export default function Map({ stops, currentStopIndex }: MapProps) {
+export default function Map({
+  stops,
+  currentStopIndex,
+  setCurrentStopIndex,
+}: MapProps) {
   const mapContainer = useRef(null);
   const map = useRef<mapboxgl.Map | null>(null);
   const markersRef = useRef<mapboxgl.Marker[]>([]);
@@ -45,7 +50,11 @@ export default function Map({ stops, currentStopIndex }: MapProps) {
         const markerContainer = document.createElement("div");
         const root = createRoot(markerContainer);
         root.render(
-          <Marker index={index} isCurrentStop={index === currentStopIndex} />
+          <Marker
+            index={index}
+            isCurrentStop={index === currentStopIndex}
+            setCurrentStopIndex={setCurrentStopIndex}
+          />
         );
 
         const marker = new mapboxgl.Marker({ element: markerContainer })
