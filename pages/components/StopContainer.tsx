@@ -40,7 +40,7 @@ const StopContainer: React.FC<StopContainerProps> = ({
         </Button>
       )}
       <h2>
-        {index + 1}. {stop.name}
+        {index + 1}. {stop?.name}
       </h2>
       <div>
         <b>Address: </b>
