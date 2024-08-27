@@ -3,14 +3,7 @@ import styles from "../styles/Home.module.css";
 import Map from "./components/Map";
 import fakeStops from "./api/fakeStops.json";
 import { useEffect, useRef, useState } from "react";
-import { Paytone_One, Libre_Baskerville } from "next/font/google";
 import classNames from "classnames/bind";
-
-const titleFont = Paytone_One({ weight: "400", subsets: ["latin"] });
-const bodyFont = Libre_Baskerville({
-  weight: ["400", "700"],
-  subsets: ["latin"],
-});
 
 export type Stop = {
   name: string;
@@ -60,7 +53,7 @@ export default function Home() {
   };
 
   return (
-    <div className={cx("container", bodyFont.className)}>
+    <div className={cx("container", { scrolled })}>
       <Head>
         <title>Williamsburg Pizza Crawl</title>
         <link rel="icon" href="/favicon.ico" />
@@ -75,21 +68,9 @@ export default function Home() {
         <div ref={containerRef} className={styles.content}>
           <div className={styles.descriptorsContainer}>
             <div className={styles.description}>
-              <p>
-                Williamsburg, Brooklyn, NYC has the best square mile of pizza
-                and I'm honored to call it home. Here's a tour of some of the
-                best spots.
-              </p>
-              <p>
-                This site is inspired by Chris Crowley's{" "}
-                <a
-                  href="https://www.grubstreet.com/2022/12/best-pizza-neighborhood-williamsburg-nyc.html"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  2022 article.
-                </a>
-              </p>
+              Williamsburg, Brooklyn, NYC has the best square mile of pizza and
+              I'm honored to call it home. Here's a tour of some of the best
+              spots.
             </div>
             {fakeStops.map((stop: Stop, i) => (
               <div
@@ -111,6 +92,16 @@ export default function Home() {
                 <p>{stop.description}</p>
               </div>
             ))}
+            <div className={styles.description}>
+              This site is inspired by Chris Crowley's{" "}
+              <a
+                href="https://www.grubstreet.com/2022/12/best-pizza-neighborhood-williamsburg-nyc.html"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                2022 article.
+              </a>
+            </div>
           </div>
           <div className={styles.mapContainer}>
             <Map
