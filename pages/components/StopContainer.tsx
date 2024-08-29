@@ -20,6 +20,10 @@ const StopContainer: React.FC<StopContainerProps> = ({
   currentStopIndex,
   setCurrentStopIndex,
 }) => {
+  if (!stop) {
+    return
+  }
+  
   return (
     <div
       id={`stop-${index}`}
